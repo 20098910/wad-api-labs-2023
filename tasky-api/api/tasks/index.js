@@ -24,7 +24,9 @@ router.post('/', (req, res) => {
         description,
         deadline,
         priority,
-        done
+        done,
+        created_at,
+        updated_at
     };
     tasksData.tasks.push(newTask);
     res.status(201).json(newTask);
