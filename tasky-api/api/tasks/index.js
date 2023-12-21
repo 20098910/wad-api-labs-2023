@@ -40,6 +40,8 @@ router.put('/:id', (req, res) => {
     if (taskIndex === -1) {
         return res.status(404).json({ status: 404, message: 'Task not found' });
     }
+    const { created_at, ...taskWithoutCreatedAt } = tasksData.tasks[taskIndex];
+    
     const updatedTask = { ...tasksData.tasks[taskIndex], ...req.body, id:id };
     tasksData.tasks[taskIndex] = updatedTask;
     res.json(updatedTask);
